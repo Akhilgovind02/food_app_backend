@@ -25,7 +25,7 @@ const requestOtp = async (req, res) => {
     });
 
     // Set OTP in a cookie
-    res.cookie('otp', otpToken, {
+    res.cookie('otp', otp, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production', // Set to true in production
       sameSite: 'None', // Required for cross-site cookies
