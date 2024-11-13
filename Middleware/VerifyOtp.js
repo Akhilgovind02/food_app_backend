@@ -46,3 +46,5 @@ const verifyOtp = (req, res, next) => {
     return res.status(401).send({ success: false, message: 'Invalid OTP. Please try again.' });
   }
 };
+
+  module.exports = verifyOtp;
