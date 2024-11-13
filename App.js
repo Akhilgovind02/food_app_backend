@@ -9,7 +9,8 @@ const app = express();
 connectDb().catch((err) => console.log(err));
 
 const corsOptions = {
-  credentials: true,
+  origin:'http://localhost:3000',
+  // credentials: true,
 };
 app.use(cors(corsOptions));
 app.use(cookieParser());
