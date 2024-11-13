@@ -10,9 +10,16 @@ connectDb().catch((err) => console.log(err));
 
 const corsOptions = {
   origin:'http://localhost:3000',
-  // credentials: true,
+  credentials: true,
 };
 app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
+
 app.use(cookieParser());
 app.use(
   session({
