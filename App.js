@@ -10,7 +10,7 @@ connectDb().catch((err) => console.log(err));
 
 const corsOptions = {
   origin:'http://localhost:3000',
-  // credentials: true,
+  credentials: true,
 };
 app.use(cors(corsOptions));
 app.use(cookieParser());
