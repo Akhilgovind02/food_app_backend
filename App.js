@@ -12,13 +12,22 @@ const corsOptions = {
   origin:'http://localhost:3000',
   credentials: true,
 };
+
 app.use(cors(corsOptions));
 
 app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // Set your frontend origin
   res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200); // Respond with OK for preflight
+  }
+  
   next();
 });
-
 
 app.use(cookieParser());
 app.use(
