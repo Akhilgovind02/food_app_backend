@@ -25,8 +25,12 @@ const requestOtp = async (req, res) => {
     });
 
     // Set OTP in a cookie
-    res.cookie("otp", otp, { maxAge: 2 * 60 * 1000, httpOnly: true });
-
+    res.cookie('otp', otpToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production', // Set to true in production
+      sameSite: 'None', // Required for cross-site cookies
+      maxAge: 5 * 60 * 1000 // 5 minutes
+  });
     return { success: true, message: "OTP sent successfully." };
   }
 
