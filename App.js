@@ -59,7 +59,7 @@ connectDb().catch((err) => console.log(err));
 
 // Dynamic CORS configuration based on environment
 const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' ? 'https://your-frontend-domain.com' : 'http://localhost:3000',
+  origin: 'http://localhost:3000',
   credentials: true,
 };
 
