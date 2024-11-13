@@ -27,7 +27,7 @@ const requestOtp = async (req, res) => {
     // Set OTP in a cookie
     res.cookie("otp", otp, { maxAge: 2 * 60 * 1000, httpOnly: true });
 
-    return { success: true, message: "OTP sent successfully." };
+    return { success: true, message: "OTP sent successfully." }
   }
 
   async function handleRequest(contact, isRegister) {
