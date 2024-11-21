@@ -7,7 +7,7 @@ const router=express.Router();
 // Otp generation and verification
  router.post("/request-otp",requestOtp);
  router.get('/logout',logoutUser);
- router.get('/me', isAuthenticatedUser,authorizeRoles, getUserDetails);
+ router.get('/me', isAuthenticatedUser, getUserDetails);
 
 //  Registration
  router.post("/register",verifyOtp,register);
