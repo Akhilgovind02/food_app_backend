@@ -40,11 +40,11 @@ const verifyOtp = (req, res, next) => {
     // OTP is correct
     res.clearCookie('otp'); // Clear the OTP cookie
     req.otpVerified = true;
-    next();
+    next()
   } else {
     // OTP is incorrect
     return res.status(401).send({ success: false, message: 'Invalid OTP. Please try again.' });
   }
 };
 
-  module.exports = verifyOtp;
+module.exports = verifyOtp;

@@ -4,7 +4,7 @@ require('dotenv').config()
 exports.isAuthenticatedUser = (async (req, res, next) => {
     try{
         const { authorization } = await req.headers;
-        console.log(typeof(req.headers.authorization))
+        console.log(req.headers.authorization)
         if (!authorization || authorization == 'null') {
             return res.status(401).json({ message: "You are not authorized to access this route"})
         }
