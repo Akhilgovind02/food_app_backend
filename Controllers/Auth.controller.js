@@ -3,6 +3,7 @@ const twilio = require("twilio");
 const crypto = require("crypto");
 const user = require("../Models/user");
 const sendToken = require("../Services/sendToken");
+const { log } = require("console");
 // Initialize Twilio client
 
 const requestOtp = async (req, res) => {
@@ -114,6 +115,8 @@ const login = async (req, res) => {
 const getUserDetails = async (req, res, next) => {
   try{
     const user = await User.findById(req.user.id);
+    console.log(user);
+    
     res.status(200).json({
         success: true,
         user,
